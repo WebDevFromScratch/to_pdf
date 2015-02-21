@@ -15,6 +15,21 @@ class ProfilesController < ApplicationController
     end
   end
 
+  def edit
+    @profile = Profile.find(params[:id])
+  end
+
+  def update
+    @profile = Profile.find(params[:id])
+
+    if @profile.update(profile_params)
+      redirect_to authenticated_root_path, notice: "Update successful!"
+    else
+      # show errors
+      render :edit
+    end
+  end
+
   private
 
   def profile_params

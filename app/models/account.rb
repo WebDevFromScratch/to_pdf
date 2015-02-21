@@ -5,4 +5,8 @@ class Account < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_one :profile
+
+  def has_profile?
+    self.profile.present?
+  end
 end
