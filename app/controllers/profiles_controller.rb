@@ -1,6 +1,7 @@
 class ProfilesController < ApplicationController
   def show
     @profile = set_profile
+    @resume_templates = ResumeTemplate.all
 
     respond_to do |format|
       format.html

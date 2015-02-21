@@ -11,7 +11,5 @@ Rails.application.routes.draw do
     end
   end
 
-  # get '/accounts/profile/:id', to: 'profiles#show', as: :show_profile
-
   resources :profiles, only: [:new, :create, :edit, :update, :show]
 end
