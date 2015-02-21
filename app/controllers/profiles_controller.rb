@@ -1,4 +1,16 @@
 class ProfilesController < ApplicationController
+  def show
+    @profile = set_profile
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render  pdf: "#{@profile.id}.pdf",
+                template: "resume_templates/#{params[:template]}.pdf.haml"
+      end
+    end
+  end
+
   def new
     @profile = Profile.new
   end
@@ -16,11 +28,11 @@ class ProfilesController < ApplicationController
   end
 
   def edit
-    @profile = Profile.find(params[:id])
+    @profile = set_profile
   end
 
   def update
-    @profile = Profile.find(params[:id])
+    @profile = set_profile
 
     if @profile.update(profile_params)
       redirect_to authenticated_root_path, notice: "Update successful!"
@@ -34,5 +46,9 @@ class ProfilesController < ApplicationController
 
   def profile_params
     params.require(:profile).permit(:first_name, :last_name, :about)
+  end
+
+  def set_profile
+    @profile = Profile.find(params[:id])
   end
 end

@@ -1,0 +1,12 @@
+%h3 You already have a profile! Nice!
+
+%h4 #{current_profile.first_name} #{current_profile.last_name}
+%p= current_profile.about
+
+=form_tag "#{params[:id]}.pdf", method: 'get' do
+  =label_tag :template
+  =select_tag :template, options_for_select([["pretty", 1], ["bad", 2]])
+  %br
+  =submit_tag 'Preview'
+
+=link_to 'Edit profile', edit_profile_path(current_profile)
