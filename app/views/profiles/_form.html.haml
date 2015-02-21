@@ -1,0 +1,13 @@
+%h1= form_name
+
+=form_for @profile do |f|
+  =f.label :first_name
+  =f.text_field :first_name
+  %br
+  =f.label :last_name
+  =f.text_field :last_name
+  %br
+  =f.label :about
+  =f.text_area :about
+  %br
+  =f.submit

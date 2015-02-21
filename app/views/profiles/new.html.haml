@@ -1,10 +1,1 @@
-%h1 Create your profile
-
-=form_for @profile do |f|
-  =f.label :first_name
-  =f.text_field :first_name
-  %br
-  =f.label :last_name
-  =f.text_field :last_name
-  %br
-  =f.submit
+=render form, form_name: "Create your profile"
