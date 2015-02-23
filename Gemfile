@@ -30,6 +30,7 @@ gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 gem 'react-rails', '~> 1.0.0.pre', github: 'reactjs/react-rails'
 gem 'sprockets-coffee-react'
+gem 'active_model_serializers'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

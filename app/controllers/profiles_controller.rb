@@ -1,10 +1,19 @@
 class ProfilesController < ApplicationController
+  # def index
+  #   @profiles = Profile.all
+  #
+  #   respond_to do |format|
+  #     format.json { render json: @profiles, serializer: ProfileSerializer }
+  #   end
+  # end
+
   def show
     @profile = set_profile
     @resume_templates = ResumeTemplate.all
 
     respond_to do |format|
       format.html
+      format.json { render json: [@profile, @resume_templates] }
       format.pdf do
         render  pdf: "#{@profile.id}.pdf",
                 template: "resume_templates/#{params[:template]}.pdf.haml"

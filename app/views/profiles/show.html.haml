@@ -3,10 +3,19 @@
 %h4 #{current_profile.first_name} #{current_profile.last_name}
 %p= current_profile.about
 
-=form_tag "#{params[:id]}.pdf", method: 'get' do
+-# =form_tag "#{params[:id]}.pdf", method: 'get' do
+=form_tag "#{params[:id]}/preview.", method: 'get' do
   =label_tag :template
   =select_tag :template, options_from_collection_for_select(@resume_templates, :id, :name)
   %br
   =submit_tag 'Preview'
+%br
 
 =link_to 'Edit profile', edit_profile_path(current_profile)
+
+-# here i'd like to render some simple react example code
+
+-# = react_component 'Counter'
+-# =react_component('HelloMessage')
+=react_component 'TemplatePreview',
+  { first_name: @profile.first_name, last_name: @profile.last_name, about: @profile.about, templates: @resume_templates }.to_json
