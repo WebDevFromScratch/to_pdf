@@ -28,6 +28,8 @@ gem 'haml-rails', '~> 0.8'
 gem 'pg'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
+gem 'react-rails', '~> 1.0.0.pre', github: 'reactjs/react-rails'
+gem 'sprockets-coffee-react'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
